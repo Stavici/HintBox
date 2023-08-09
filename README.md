@@ -1,6 +1,6 @@
 # HintBox
 
-This repository contains a project for solving and analyzing Rubik's cube using OpenCv.
+A mobile application created using Java that is capable of identifying color sequences and generating a solution sequence for a Rubik's Cube.
 
 Dynamic analysis cube
 
