@@ -1,4 +1,4 @@
-package com.example.hintbox;
+package com.example.hintbox.core;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,16 +6,15 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.hintbox.MainActivity;
+import com.example.hintbox.R;
+import com.example.hintbox.SettingCube;
+import com.example.hintbox.core.Search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.io.CharArrayReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Solver extends AppCompatActivity {
 

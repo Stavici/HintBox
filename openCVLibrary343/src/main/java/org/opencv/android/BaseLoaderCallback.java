@@ -12,7 +12,7 @@ import android.util.Log;
  */
 public abstract class BaseLoaderCallback implements LoaderCallbackInterface {
 
-    public BaseLoaderCallback(Context AppContext) {
+    public BaseLoaderCallback() {
         mAppContext = AppContext;
     }
 

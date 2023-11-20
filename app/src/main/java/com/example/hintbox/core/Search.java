@@ -1,4 +1,4 @@
-package com.example.hintbox;
+package com.example.hintbox.core;
 
 public class Search {
     public static final boolean USE_TWIST_FLIP_PRUN = true;

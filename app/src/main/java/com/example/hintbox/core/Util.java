@@ -1,4 +1,7 @@
-package com.example.hintbox;
+package com.example.hintbox.core;
+
+import com.example.hintbox.core.CubieCube;
+import com.example.hintbox.core.Search;
 
 public class Util {
 

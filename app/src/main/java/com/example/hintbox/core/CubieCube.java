@@ -1,4 +1,4 @@
-package com.example.hintbox;
+package com.example.hintbox.core;
 
 import java.util.Arrays;
 

@@ -12,9 +12,10 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.hintbox.colors.ColorHSV;
+import com.example.hintbox.core.Solver;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.slider.RangeSlider;
 
@@ -43,7 +44,7 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
     private Scalar scalarLowSetting, scalarHightSetting;
     private Button buttonYellow, buttonWhite, buttonOrange, buttonBlue, buttonRed, buttonSave;
 
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback() {
         @Override
         public void onManagerConnected(int status) {
             switch (status) {
@@ -103,8 +104,8 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
         blueHsv = setSettingHSV("B", "blue");
 
         settingHsv = yellowHsv;
-        scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-        scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+        scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+        scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
 
         FrameLayout frameLayout = findViewById(R.id.frame_layout);
 
@@ -114,8 +115,8 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
             public void onClick(View v) {
                 settingHsv = yellowHsv;
                 setProgress(yellowHsv);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
         });
 
@@ -125,8 +126,8 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
             public void onClick(View v) {
                 settingHsv = blueHsv;
                 setProgress(blueHsv);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
         });
 
@@ -136,8 +137,8 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
             public void onClick(View v) {
                 settingHsv = greenHsv;
                 setProgress(greenHsv);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
         });
 
@@ -147,8 +148,8 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
             public void onClick(View v) {
                 settingHsv = orangeHsv;
                 setProgress(orangeHsv);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
         });
 
@@ -158,8 +159,8 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
             public void onClick(View v) {
                 settingHsv = redHsv;
                 setProgress(redHsv);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
         });
 
@@ -169,8 +170,8 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
             public void onClick(View v) {
                 settingHsv = whiteHsv;
                 setProgress(whiteHsv);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
         });
 
@@ -194,10 +195,10 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
                 List<Float> list = rangeH.getValues();
                 float min = list.get(0);
                 float max = list.get(1);
-                settingHsv.setLowH((int) min);
-                settingHsv.setHightH((int) max);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                settingHsv.setLowHue((int) min);
+                settingHsv.setHighHue((int) max);
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
 
             @Override
@@ -213,10 +214,10 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
                 List<Float> list = rangeS.getValues();
                 float min = list.get(0);
                 float max = list.get(1);
-                settingHsv.setLowS((int) min);
-                settingHsv.setHightS((int) max);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                settingHsv.setLowSaturation((int) min);
+                settingHsv.setHighSaturation((int) max);
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
 
             @Override
@@ -232,10 +233,10 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
                 List<Float> list = rangeV.getValues();
                 float min = list.get(0);
                 float max = list.get(1);
-                settingHsv.setLowV((int) min);
-                settingHsv.setHightV((int) max);
-                scalarLowSetting = new Scalar(settingHsv.getLowH(), settingHsv.getLowS(), settingHsv.getLowV());
-                scalarHightSetting = new Scalar(settingHsv.getHightH(), settingHsv.getHightS(), settingHsv.getHightV());
+                settingHsv.setLowValue((int) min);
+                settingHsv.setHighValue((int) max);
+                scalarLowSetting = new Scalar(settingHsv.getLowHue(), settingHsv.getLowSaturation(), settingHsv.getLowValue());
+                scalarHightSetting = new Scalar(settingHsv.getHighHue(), settingHsv.getHighSaturation(), settingHsv.getHighValue());
             }
 
             @Override
@@ -286,9 +287,9 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
     }
 
     public void setProgress (ColorHSV colorHSV) {
-        rangeH.setValues((float) colorHSV.getLowH(), (float) colorHSV.getHightH());
-        rangeS.setValues((float) colorHSV.getLowS(), (float) colorHSV.getHightS());
-        rangeV.setValues((float) colorHSV.getLowV(), (float) colorHSV.getHightV());
+        rangeH.setValues((float) colorHSV.getLowHue(), (float) colorHSV.getHighHue());
+        rangeS.setValues((float) colorHSV.getLowSaturation(), (float) colorHSV.getHighSaturation());
+        rangeV.setValues((float) colorHSV.getLowValue(), (float) colorHSV.getHighValue());
     }
 
     public ColorHSV setSettingHSV (String color, String name) {
@@ -308,12 +309,12 @@ public class SettingCube extends AppCompatActivity implements CameraBridgeViewBa
         SharedPreferences settings = getApplicationContext().getSharedPreferences("ColorSetting", 0);
         SharedPreferences.Editor editor = settings.edit();
 
-        editor.putInt(String.format(color + "Hl"), colorHSV.getLowH());
-        editor.putInt(String.format(color + "Hh"), colorHSV.getHightH());
-        editor.putInt(String.format(color + "Sl"), colorHSV.getLowS());
-        editor.putInt(String.format(color + "Sh"), colorHSV.getHightS());
-        editor.putInt(String.format(color + "Vl"), colorHSV.getLowV());
-        editor.putInt(String.format(color + "Vh"), colorHSV.getHightV());
+        editor.putInt(String.format(color + "Hl"), colorHSV.getLowHue());
+        editor.putInt(String.format(color + "Hh"), colorHSV.getHighHue());
+        editor.putInt(String.format(color + "Sl"), colorHSV.getLowSaturation());
+        editor.putInt(String.format(color + "Sh"), colorHSV.getHighSaturation());
+        editor.putInt(String.format(color + "Vl"), colorHSV.getLowValue());
+        editor.putInt(String.format(color + "Vh"), colorHSV.getHighValue());
 
         editor.apply();
     }

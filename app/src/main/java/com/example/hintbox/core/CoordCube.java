@@ -1,4 +1,4 @@
-package com.example.hintbox;
+package com.example.hintbox.core;
 
 public class CoordCube {
     static final int N_MOVES = 18;
