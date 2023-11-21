@@ -82,10 +82,6 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         styledAttrs.recycle();
     }
 
-    public CameraBridgeViewBase() {
-        super();
-    }
-
     /**
      * Sets the camera index
      * @param cameraIndex new camera index

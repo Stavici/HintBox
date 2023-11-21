@@ -4,12 +4,12 @@ public class Cuber {
     public int x, y, w, h;
     public String color;
 
-    Cuber (int x_, int y_, int w_, int h_, String color) {
+    Cuber (int x_, int y_, int w_, int h_, String c) {
         this.x = x_;
         this.y = y_;
         this.w = w_;
         this.h = h_;
-        this.color = color;
+        this.color = c;
     }
 
     public int getY() {

@@ -4,11 +4,8 @@
 4    android:versionCode="3430"
 5    android:versionName="3.4.3" >
 6
-7    <uses-sdk
-7-->D:\Programm project\AndroidStudioProjects\HintBox\openCVLibrary343\src\main\AndroidManifest.xml:7:5-73
-8        android:minSdkVersion="19"
-8-->D:\Programm project\AndroidStudioProjects\HintBox\openCVLibrary343\src\main\AndroidManifest.xml:7:15-40
-9        android:targetSdkVersion="30" />
-9-->D:\Programm project\AndroidStudioProjects\HintBox\openCVLibrary343\src\main\AndroidManifest.xml:7:41-70
-10
-11</manifest>
+7    <uses-sdk android:minSdkVersion="19" />
+7-->D:\Programm project\AndroidStudioProjects\HintBox\openCVLibrary343\src\main\AndroidManifest.xml:6:5-73
+7-->D:\Programm project\AndroidStudioProjects\HintBox\openCVLibrary343\src\main\AndroidManifest.xml:6:15-40
+8
+9</manifest>
